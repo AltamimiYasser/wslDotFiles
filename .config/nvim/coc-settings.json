@@ -1,0 +1,9 @@
+{
+    "sourcekit.commandPath": "/home/yasser/.swift/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-12-07-a-ubuntu20.04/usr/bin/sourcekit-lsp",
+    "languageserver": {
+        "sourcekit-lsp": {
+            "filetypes": ["swift"],
+            "command": "sourcekit-lsp"
+        }
+    }
+}
