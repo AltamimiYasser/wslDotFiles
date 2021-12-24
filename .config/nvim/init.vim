@@ -4,6 +4,15 @@ filetype indent on
 
 let g:loaded_perl_provider = 0
 
+" clipboard to windows
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
+
 " coc nvim
 set hidden
 set nobackup

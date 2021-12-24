@@ -2,15 +2,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/yasser/.oh-my-zsh"
 
-# path+=('~/.swift/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-12-07-a-ubuntu20.04/usr/bin')
-# If you come from bash you might have to change your $PATH.
 export PATH=~/.swift/swift-5.5-DEVELOPMENT-SNAPSHOT-2021-12-07-a-ubuntu20.04/usr/bin:$PATH
 export DENO_INSTALL="/home/yasser/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 HYPHEN_INSENSITIVE="true"
 
@@ -43,5 +38,6 @@ alias v="nvim"
 alias update="sudo apt-get update"
 alias upgrade="sudo apt-get upgrade"
 alias config='/usr/bin/git --git-dir=/home/yasser/.cfg/ --work-tree=/home/yasser'
+alias listconfig='config ls-tree --full-tree -r --name-only HEAD'
 
 neofetch
