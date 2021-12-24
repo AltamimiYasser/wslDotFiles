@@ -28,6 +28,17 @@ else
   set signcolumn=yes
 endif
 
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
 " tab to cycle between completion choices
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -139,10 +150,9 @@ Plug 'mbbill/undotree'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'kentaroi/ultisnips-swift'
 Plug 'LunarWatcher/auto-pairs', {'branch': 'develop-4.0.0'}
+
 
 call plug#end()
 
@@ -205,10 +215,3 @@ augroup END
 lua << EOF
 require'lspconfig'.sourcekit.setup{}
 EOF
-"
-""settings = {
-""      ada = {
-""        projectFile = "project.gpr";
-""        scenarioVariables = { ... };
-""      }
-""  }
