@@ -23,7 +23,11 @@ plugins=(
 	colorize
 	zsh-autosuggestions
 	you-should-use
+    vi-mode
 )
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+bindkey -v
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,3 +45,24 @@ alias config='/usr/bin/git --git-dir=/home/yasser/.cfg/ --work-tree=/home/yasser
 alias listconfig='config ls-tree --full-tree -r --name-only HEAD'
 
 neofetch
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' file-sort access
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' insert-unambiguous false
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' original false
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle :compinstall filename '/home/yasser/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
