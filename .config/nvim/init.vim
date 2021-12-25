@@ -21,6 +21,7 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 
+
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
@@ -28,7 +29,7 @@ else
   set signcolumn=yes
 endif
 
-" use <tab> for trigger completion and navigate to the next complete item
+"" use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
@@ -36,12 +37,9 @@ endfunction
 
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
-
-" tab to cycle between completion choices
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Use <c-space> to trigger completion.
 if has('nvim')
